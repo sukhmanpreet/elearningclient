@@ -12,7 +12,12 @@ import { appRoutingModule } from './app.routing';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { AdminComponent } from './admin';
-import { LoginComponent } from './login';
+import { LoginComponent } from './login';;
+import { PostsComponent } from './posts/posts.component';
+import { PostdetailComponent } from './postdetail/postdetail.component';
+import { UsersComponent } from './users/users.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { CreatepostComponent } from './createpost/createpost.component';
 
 @NgModule({
     imports: [
@@ -26,13 +31,19 @@ import { LoginComponent } from './login';
         HomeComponent,
         AdminComponent,
         LoginComponent
-    ],
+,
+        PostsComponent
+,
+        PostdetailComponent ,
+        UsersComponent ,
+        AnalyticsComponent ,
+        CreatepostComponent ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
         // provider used to create fake backend
-        fakeBackendProvider
+        //fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

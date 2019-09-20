@@ -5,6 +5,7 @@ import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import { AuthGuard } from './_helpers';
 import { Role } from './_models';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,10 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent
     },
+    {
+      path: 'posts',
+      component: PostsComponent
+  },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
