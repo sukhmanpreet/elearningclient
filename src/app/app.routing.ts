@@ -6,6 +6,9 @@ import { LoginComponent } from './login';
 import { AuthGuard } from './_helpers';
 import { Role } from './_models';
 import { PostsComponent } from './posts/posts.component';
+import { CreatepostComponent } from './createpost/createpost.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
     {
@@ -27,7 +30,25 @@ const routes: Routes = [
       path: 'posts',
       component: PostsComponent
   },
+  {
+    path: 'createpost',
+    component: CreatepostComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin]}
+},
+{
+    path: 'analytics',
+    component: AnalyticsComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.User]}
 
+},
+{
+    path: 'users',
+    component: UsersComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin]}
+},
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

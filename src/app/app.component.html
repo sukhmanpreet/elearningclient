@@ -1,10 +1,13 @@
 ﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
     <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+        <a class="nav-item nav-link" routerLink="/posts">Home</a>
         <a class="nav-item nav-link" routerLink="/posts">Posts</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        <a class="nav-item nav-link" routerLink="/createpost" *ngIf="isAdmin">Create Post</a>
+        <a class="nav-item nav-link" routerLink="/analytics" *ngIf="!isAdmin">Analytics</a>
+        <a class="nav-item nav-link" routerLink="/users" *ngIf="isAdmin">Users</a>
+        <label class="nav-item nav-link">Welcome {{currentUser.username}}</label>
+        <a class="nav-item nav-link float-right" (click)="logout()">Logout</a>
     </div>
 </nav>
 

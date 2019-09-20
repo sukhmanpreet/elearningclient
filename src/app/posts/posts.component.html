@@ -22,9 +22,19 @@
         <!--Text-->
         <p class="card-text">{{post.content}}</p>
         <!-- <a href="#" class="btn btn-primary">Button</a> -->
-        <button type="button" class="btn btn-info btn-sm" (click)="like(post.postID)">
-          <span class="glyphicon glyphicon-thumbs-up"></span> {{post.liked?'Liked':'Like'}}
-        </button>
+        <div *ngIf="!isAdmin">
+          
+            <button type="button" class="btn btn-info btn-sm" (click)="like(post.postID)">
+                <span class="glyphicon glyphicon-thumbs-up"></span> {{post.liked?'Liked':'Like'}}
+              </button>
+        </div>
+        <div *ngIf="isAdmin">
+          
+            <button type="button" class="btn btn-info btn-sm" routerLink="edit/{{post.postID}}">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Edit
+              </button>
+        </div>
+        
       </div>
 
     </div>

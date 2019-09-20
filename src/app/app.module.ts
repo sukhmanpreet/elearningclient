@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TagInputModule } from 'ngx-chips';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -18,13 +19,16 @@ import { PostdetailComponent } from './postdetail/postdetail.component';
 import { UsersComponent } from './users/users.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { CreatepostComponent } from './createpost/createpost.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        appRoutingModule
+        appRoutingModule,
+        FormsModule,
+        TagInputModule,
     ],
     declarations: [
         AppComponent,

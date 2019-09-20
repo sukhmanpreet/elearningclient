@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '@app/_models/post';
+import { PostService } from '@app/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createpost',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatepostComponent implements OnInit {
 
-  constructor() { }
+  post:Post;
+  tags:any[];
+
+  constructor(private postService: PostService,private router: Router) { }
 
   ngOnInit() {
+    this.post = new Post();
+    this.post.type = "audio"
+  }
+
+  savePost(){
+    let tagsValue:any[] = [];
+    for(let tag of this.tags)
+    {
+      tagsValue.push(tag.value);
+    }
+    this.postService.savePost(this.post,tagsValue.join(',')).subscribe(x => {this.router.navigate(['/posts'])});
   }
 
 }
